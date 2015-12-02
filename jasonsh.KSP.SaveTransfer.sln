@@ -5,6 +5,22 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jasonsh.KSP.SaveTransfer", "jasonsh.KSP.SaveTransfer\jasonsh.KSP.SaveTransfer.csproj", "{9B970B4C-D111-448D-808D-24138AB28698}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5857BE6A-40E3-4AEF-B111-C4D8FE39DE53}"
+	ProjectSection(SolutionItems) = preProject
+		Destination Save.sfs = Destination Save.sfs
+		Source Save.sfs = Source Save.sfs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{F3A76F4C-979B-46A0-8F6B-2FE051A7EEB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jasonsh.KSP.Parsers", "jasonsh.KSP.Parsers\jasonsh.KSP.Parsers.csproj", "{AF9D5E8B-DB30-45BB-A59A-964BCDD1B498}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{41E8A9D5-43C7-4D02-B4C8-E78CB7431B34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jasonsh.KSP.Parsers.UnitTests", "jasonsh.KSP.Parsers.UnitTests\jasonsh.KSP.Parsers.UnitTests.csproj", "{D4F7882A-0FF4-411F-8AFA-7F027B5B8ED5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jasonsh.KSP.Models", "jasonsh.KSP.Models\jasonsh.KSP.Models.csproj", "{8F22428C-969F-4EBB-A66F-FB327D91F2EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +31,26 @@ Global
 		{9B970B4C-D111-448D-808D-24138AB28698}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B970B4C-D111-448D-808D-24138AB28698}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B970B4C-D111-448D-808D-24138AB28698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF9D5E8B-DB30-45BB-A59A-964BCDD1B498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF9D5E8B-DB30-45BB-A59A-964BCDD1B498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF9D5E8B-DB30-45BB-A59A-964BCDD1B498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF9D5E8B-DB30-45BB-A59A-964BCDD1B498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F7882A-0FF4-411F-8AFA-7F027B5B8ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F7882A-0FF4-411F-8AFA-7F027B5B8ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F7882A-0FF4-411F-8AFA-7F027B5B8ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F7882A-0FF4-411F-8AFA-7F027B5B8ED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F22428C-969F-4EBB-A66F-FB327D91F2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F22428C-969F-4EBB-A66F-FB327D91F2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F22428C-969F-4EBB-A66F-FB327D91F2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F22428C-969F-4EBB-A66F-FB327D91F2EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF9D5E8B-DB30-45BB-A59A-964BCDD1B498} = {F3A76F4C-979B-46A0-8F6B-2FE051A7EEB1}
+		{41E8A9D5-43C7-4D02-B4C8-E78CB7431B34} = {F3A76F4C-979B-46A0-8F6B-2FE051A7EEB1}
+		{D4F7882A-0FF4-411F-8AFA-7F027B5B8ED5} = {41E8A9D5-43C7-4D02-B4C8-E78CB7431B34}
+		{8F22428C-969F-4EBB-A66F-FB327D91F2EF} = {F3A76F4C-979B-46A0-8F6B-2FE051A7EEB1}
 	EndGlobalSection
 EndGlobal

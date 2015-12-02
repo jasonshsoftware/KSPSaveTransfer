@@ -1,0 +1,1068 @@
+GAME
+{
+	version = 1.0.5
+	Title = KSPSaveTransfer (SANDBOX)
+	Description = No description available.
+	linkURL = 
+	linkCaption = 
+	Mode = SANDBOX
+	Status = 1
+	scene = 7
+	editor = None
+	flag = Squad/Flags/default
+	launchID = 2
+	PARAMETERS
+	{
+		preset = Normal
+		FLIGHT
+		{
+			CanQuickSave = True
+			CanQuickLoad = True
+			CanAutoSave = True
+			CanUseMap = True
+			CanSwitchVesselsNear = True
+			CanSwitchVesselsFar = True
+			CanTimeWarpHigh = True
+			CanTimeWarpLow = True
+			CanEVA = True
+			CanIVA = True
+			CanBoard = True
+			CanRestart = True
+			CanLeaveToEditor = True
+			CanLeaveToTrackingStation = True
+			CanLeaveToSpaceCenter = True
+			CanLeaveToMainMenu = False
+		}
+		EDITOR
+		{
+			CanSave = True
+			CanLoad = True
+			CanStartNew = True
+			CanLaunch = True
+			CanLeaveToSpaceCenter = True
+			CanLeaveToMainMenu = False
+			startUpMode = 0
+			craftFileToLoad = 
+		}
+		TRACKINGSTATION
+		{
+			CanFlyVessel = True
+			CanAbortVessel = True
+			CanLeaveToSpaceCenter = True
+			CanLeaveToMainMenu = False
+		}
+		SPACECENTER
+		{
+			CanGoInVAB = True
+			CanGoInSPH = True
+			CanGoInTrackingStation = True
+			CanLaunchAtPad = True
+			CanLaunchAtRunway = True
+			CanLeaveToMainMenu = True
+		}
+		DIFFICULTY
+		{
+			AutoHireCrews = False
+			MissingCrewsRespawn = True
+			BypassEntryPurchaseAfterResearch = True
+			AllowStockVessels = True
+			IndestructibleFacilities = False
+			ResourceAbundance = 1
+			ReentryHeatScale = 1
+		}
+		CAREER
+		{
+			TechTreeUrl = GameData/Squad/Resources/TechTree.cfg
+			StartingFunds = 25000
+			StartingScience = 0
+			StartingReputation = 0
+			FundsGainMultiplier = 1
+			RepGainMultiplier = 1
+			ScienceGainMultiplier = 1
+			FundsLossMultiplier = 1
+			RepLossMultiplier = 1
+			RepLossDeclined = 1
+		}
+	}
+	SCENARIO
+	{
+		name = ScenarioNewGameIntro
+		scene = 5, 6, 8
+		kscComplete = True
+		editorComplete = True
+		tsComplete = False
+	}
+	SCENARIO
+	{
+		name = ProgressTracking
+		scene = 7, 8, 5
+		Progress
+		{
+			RecordsAltitude
+			{
+				reached = 4.95999999999998
+				record = 72.8240878192009
+			}
+			RecordsSpeed
+			{
+				reached = 4.99999999999998
+				record = 0.586410237159912
+			}
+			RecordsDistance
+			{
+				reached = 5.07999999999998
+				record = 756.346515680762
+			}
+		}
+	}
+	SCENARIO
+	{
+		name = VesselRecovery
+		scene = 5, 7, 8, 6
+	}
+	SCENARIO
+	{
+		name = ScenarioDestructibles
+		scene = 5, 7, 6, 8
+		SpaceCenter/VehicleAssemblyBuilding/Facility/VAB2
+		{
+			intact = True
+		}
+		SpaceCenter/TrackingStation/Facility/OuterDish
+		{
+			intact = True
+		}
+		SpaceCenter/TrackingStation/Facility/building
+		{
+			intact = True
+		}
+		SpaceCenter/SpaceplaneHangar/Facility/Building
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/ForeverAlone
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/MissionControl/Facility/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/LaunchPad/Facility/Flag
+		{
+			intact = True
+		}
+		SpaceCenter/AstronautComplex/Facility/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/FlagPole/Facility
+		{
+			intact = True
+		}
+		SpaceCenter/Administration/Facility/Building
+		{
+			intact = True
+		}
+		SpaceCenter/VehicleAssemblyBuilding/Facility/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/VehicleAssemblyBuilding/Facility/Tank
+		{
+			intact = True
+		}
+		SpaceCenter/VehicleAssemblyBuilding/Facility/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/VehicleAssemblyBuilding/Facility/PodMemorial
+		{
+			intact = True
+		}
+		SpaceCenter/TrackingStation/Facility/dish_array/dish_south
+		{
+			intact = True
+		}
+		SpaceCenter/TrackingStation/Facility/dish_array/dish_north
+		{
+			intact = True
+		}
+		SpaceCenter/TrackingStation/Facility/dish_array/dish_east
+		{
+			intact = True
+		}
+		SpaceCenter/TrackingStation/Facility/MainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/SpaceplaneHangar/Facility/Tank
+		{
+			intact = True
+		}
+		SpaceCenter/SpaceplaneHangar/Facility/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/SpaceplaneHangar/Facility/ksp_pad_waterTower
+		{
+			intact = True
+		}
+		SpaceCenter/SpaceplaneHangar/Facility/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/model_runway_new_v43/runway_light_SE
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/model_runway_new_v43/runway_light_NE
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/model_runway_new_v43/runway_light_NW
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/model_runway_new_v43/runway_light_SW
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/End09
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/End27
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/Section1
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/Section2
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/Section3
+		{
+			intact = True
+		}
+		SpaceCenter/Runway/Facility/Section4
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/SmallLab
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/CentralBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/MainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/CornerLab
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/WindTunnel
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/Observatory
+		{
+			intact = True
+		}
+		SpaceCenter/ResearchAndDevelopment/Facility/SideLab
+		{
+			intact = True
+		}
+		SpaceCenter/MissionControl/Facility/building
+		{
+			intact = True
+		}
+		SpaceCenter/LaunchPad/Facility/LaunchPadMedium/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/LaunchPad/Facility/LaunchPadMedium/ksp_pad_launchPad
+		{
+			intact = True
+		}
+		SpaceCenter/LaunchPad/Facility/LaunchPadMedium/ksp_pad_sphereTank
+		{
+			intact = True
+		}
+		SpaceCenter/LaunchPad/Facility/LaunchPadMedium/ksp_pad_waterTower
+		{
+			intact = True
+		}
+		SpaceCenter/LaunchPad/Facility/LaunchPadMedium/KSCFlagPoleLaunchPad
+		{
+			intact = True
+		}
+		SpaceCenter/AstronautComplex/Facility/building
+		{
+			intact = True
+		}
+		SpaceCenter/Administration/Facility/mainBuilding
+		{
+			intact = True
+		}
+	}
+	SCENARIO
+	{
+		name = ScenarioDiscoverableObjects
+		scene = 7, 8, 5
+		lastSeed = 559298752
+		sizeCurve
+		{
+			key = 0 0 1.5 1.5
+			key = 0.3 0.45 0.875 0.875
+			key = 0.7 0.55 0.875 0.875
+			key = 1 1 1.5 1.5
+		}
+	}
+	SCENARIO
+	{
+		name = StnSciScenario
+		scene = 5, 7, 6, 8
+		xp = 0
+	}
+	SCENARIO
+	{
+		name = CustomWaypoints
+		scene = 7, 8
+	}
+	SCENARIO
+	{
+		name = ResourceScenario
+		scene = 5, 7, 6
+		RESOURCE_SETTINGS
+		{
+			GameSeed = 742961180
+			MaxDeltaTime = 21600
+		}
+	}
+	FLIGHTSTATE
+	{
+		version = 1.0.5
+		UT = 6.35999999999995
+		activeVessel = 1
+		mapViewFiltering = -1026
+		VESSEL
+		{
+			pid = 6aac443b27834f2db990f1fdd110c8b9
+			name = Ast. HSJ-227
+			type = SpaceObject
+			sit = ORBITING
+			landed = False
+			landedAt = 
+			splashed = False
+			met = 0.02
+			lct = 0.02
+			lastUT = -1
+			root = 0
+			lat = -2.83448037655024
+			lon = 181.081316783941
+			alt = 14594729434.7079
+			hgt = -1
+			nrm = 0,1,0
+			rot = -0.2984336,0.402898,-0.8173988,0.283672
+			CoM = 0,0,0
+			stg = 0
+			prst = False
+			ref = 0
+			ctrl = False
+			ORBIT
+			{
+				SMA = 15240609664.3367
+				ECC = 0.10916060342649
+				INC = 2.87223655002622
+				LPE = 2.11728824829586
+				LAN = 261.773338757019
+				MNA = 6.22770566804373
+				EPH = 2043585.75608398
+				REF = 0
+			}
+			PART
+			{
+				name = PotatoRoid
+				cid = 0
+				uid = 559298752
+				mid = 559298752
+				launchID = 0
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				dstg = 0
+				sqor = 0
+				sepI = 0
+				sidx = 0
+				attm = 0
+				srfN = None, -1
+				mass = 150
+				temp = -1
+				tempExt = 0
+				tempExtUnexp = 0
+				expt = 0.1
+				state = 0
+				connected = True
+				attached = True
+				flag = 
+				rTrf = 
+				modCost = 0
+			}
+			ACTIONGROUPS
+			{
+			}
+			DISCOVERY
+			{
+				state = 1
+				lastObservedTime = 0.02
+				lifetime = 586354.751586914
+				refTime = 1728000
+				size = 4
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+			}
+		}
+		VESSEL
+		{
+			pid = 11768ee2f0fe47c5b63a98886c450afa
+			name = Test Destination Vessel
+			type = Lander
+			sit = PRELAUNCH
+			landed = True
+			landedAt = KSC_LaunchPad_Platform
+			splashed = False
+			met = 0
+			lct = 6.35999999999995
+			lastUT = 6.35999999999995
+			root = 0
+			lat = -0.097207792271306
+			lon = 285.442326516418
+			alt = 72.7779868067009
+			hgt = 0.3324496
+			nrm = 2.153696E-06,1,-6.451444E-09
+			rot = -0.7009888,-0.09221743,-0.09726453,0.7004643
+			CoM = 0,0,0
+			stg = 1
+			prst = False
+			ref = 470168093
+			ctrl = False
+			cPch = 0.2
+			cHdg = 0.3
+			cMod = 0
+			ORBIT
+			{
+				SMA = 300818.741210335
+				ECC = 0.994798514085626
+				INC = 0.0972077911556719
+				LPE = 89.9991513762841
+				LAN = 105.549756237234
+				MNA = 3.14159265358979
+				EPH = 6.35999999999995
+				REF = 1
+			}
+			PART
+			{
+				name = cupola
+				cid = 4294729694
+				uid = 470168093
+				mid = 2113967468
+				launchID = 1
+				parent = 0
+				position = 0,0,0
+				rotation = 0,0,0,1
+				mirror = 1,1,1
+				symMethod = Radial
+				istg = 0
+				dstg = 0
+				sqor = -1
+				sepI = 0
+				sidx = -1
+				attm = 0
+				srfN = , -1
+				attN = bottom, -1
+				attN = top, -1
+				mass = 1.76
+				temp = 314.869785732082
+				tempExt = 314.796337544871
+				tempExtUnexp = 314.797745281048
+				expt = 0.5
+				state = 0
+				connected = True
+				attached = True
+				flag = Squad/Flags/default
+				rTrf = cupola
+				modCost = 0
+				EVENTS
+				{
+				}
+				ACTIONS
+				{
+				}
+				PARTDATA
+				{
+				}
+				MODULE
+				{
+					name = ModuleCommand
+					isEnabled = True
+					controlSrcStatusText = Not Enough Crew (0/1)
+					stagingEnabled = True
+					EVENTS
+					{
+						MakeReference
+						{
+							active = True
+							guiActive = True
+							guiActiveUncommand = False
+							guiIcon = Control From Here
+							guiName = Control From Here
+							category = Control From Here
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						RenameVessel
+						{
+							active = True
+							guiActive = True
+							guiActiveUncommand = True
+							guiIcon = Rename Vessel
+							guiName = Rename Vessel
+							category = Rename Vessel
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						ToggleStaging
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Disable Staging
+							guiName = Disable Staging
+							category = Disable Staging
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+					}
+					ACTIONS
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleReactionWheel
+					isEnabled = True
+					stateString = Idle
+					stagingEnabled = True
+					WheelState = Active
+					EVENTS
+					{
+						OnToggle
+						{
+							active = True
+							guiActive = True
+							guiActiveEditor = True
+							guiActiveUncommand = False
+							guiIcon = Toggle Torque
+							guiName = Toggle Torque
+							category = Toggle Torque
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						ToggleStaging
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Disable Staging
+							guiName = Disable Staging
+							category = Disable Staging
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+					}
+					ACTIONS
+					{
+						Activate
+						{
+							actionGroup = None
+						}
+						Deactivate
+						{
+							actionGroup = None
+						}
+						Toggle
+						{
+							actionGroup = None
+						}
+					}
+				}
+				MODULE
+				{
+					name = ModuleScienceExperiment
+					isEnabled = True
+					Deployed = False
+					Inoperable = False
+					stagingEnabled = True
+					EVENTS
+					{
+						DeployExperiment
+						{
+							active = True
+							guiActive = True
+							guiActiveUncommand = False
+							guiIcon = Deploy
+							guiName = Crew Report
+							category = Deploy
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						CollectDataExternalEvent
+						{
+							active = False
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = 
+							guiName = Take Data
+							category = 
+							guiActiveUnfocused = True
+							unfocusedRange = 1.5
+							externalToEVAOnly = True
+						}
+						ReviewDataEvent
+						{
+							active = False
+							guiActive = True
+							guiActiveUncommand = False
+							guiIcon = Review Data
+							guiName = Review Report
+							category = Review Data
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						ResetExperiment
+						{
+							active = False
+							guiActive = True
+							guiActiveUncommand = False
+							guiIcon = Reset
+							guiName = Discard Crew Report
+							category = Reset
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						DeployExperimentExternal
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Deploy
+							guiName = Crew Report
+							category = Deploy
+							guiActiveUnfocused = True
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						ResetExperimentExternal
+						{
+							active = False
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Reset
+							guiName = Discard Crew Report
+							category = Reset
+							guiActiveUnfocused = True
+							unfocusedRange = 1.5
+							externalToEVAOnly = True
+						}
+						CleanUpExperimentExternal
+						{
+							active = False
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Restore
+							guiName = Restore
+							category = Restore
+							guiActiveUnfocused = True
+							unfocusedRange = 1.5
+							externalToEVAOnly = True
+						}
+						ToggleStaging
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Disable Staging
+							guiName = Disable Staging
+							category = Disable Staging
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+					}
+					ACTIONS
+					{
+						DeployAction
+						{
+							actionGroup = None
+						}
+						ResetAction
+						{
+							actionGroup = None
+						}
+					}
+				}
+				MODULE
+				{
+					name = ModuleScienceContainer
+					isEnabled = True
+					stagingEnabled = True
+					EVENTS
+					{
+						StoreDataExternalEvent
+						{
+							active = False
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = 
+							guiName = Store Experiments (0)
+							category = 
+							guiActiveUnfocused = True
+							unfocusedRange = 1.6
+							externalToEVAOnly = True
+						}
+						CollectDataExternalEvent
+						{
+							active = False
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = 
+							guiName = Take Data (0)
+							category = 
+							guiActiveUnfocused = True
+							unfocusedRange = 1.6
+							externalToEVAOnly = True
+						}
+						ReviewDataEvent
+						{
+							active = False
+							guiActive = True
+							guiActiveUncommand = False
+							guiIcon = Review Data
+							guiName = Review Stored Data (0)
+							category = Review Data
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						ToggleStaging
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Disable Staging
+							guiName = Disable Staging
+							category = Disable Staging
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+					}
+					ACTIONS
+					{
+					}
+				}
+				MODULE
+				{
+					name = FlagDecal
+					isEnabled = True
+					flagDisplayed = True
+					stagingEnabled = True
+					EVENTS
+					{
+						ToggleFlag
+						{
+							active = True
+							guiActive = False
+							guiActiveEditor = True
+							guiActiveUncommand = False
+							guiIcon = Toggle Flag
+							guiName = Toggle Flag
+							category = Toggle Flag
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						ToggleStaging
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Disable Staging
+							guiName = Disable Staging
+							category = Disable Staging
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+					}
+					ACTIONS
+					{
+					}
+				}
+				MODULE
+				{
+					name = ModuleTripLogger
+					isEnabled = True
+					stagingEnabled = True
+					EVENTS
+					{
+						ToggleStaging
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Disable Staging
+							guiName = Disable Staging
+							category = Disable Staging
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+					}
+					ACTIONS
+					{
+					}
+					Log
+					{
+						flight = 0
+					}
+				}
+				MODULE
+				{
+					name = TransferDialogSpawner
+					isEnabled = True
+					stagingEnabled = True
+					EVENTS
+					{
+						SpawnDialog
+						{
+							active = True
+							guiActive = True
+							guiActiveUncommand = True
+							guiIcon = Transfer Crew
+							guiName = Transfer Crew
+							category = Transfer Crew
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+						ToggleStaging
+						{
+							active = True
+							guiActive = False
+							guiActiveUncommand = False
+							guiIcon = Disable Staging
+							guiName = Disable Staging
+							category = Disable Staging
+							guiActiveUnfocused = False
+							unfocusedRange = 2
+							externalToEVAOnly = True
+						}
+					}
+					ACTIONS
+					{
+					}
+				}
+				RESOURCE
+				{
+					name = ElectricCharge
+					amount = 200
+					maxAmount = 200
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+				RESOURCE
+				{
+					name = MonoPropellant
+					amount = 10
+					maxAmount = 10
+					flowState = True
+					isTweakable = True
+					hideFlow = False
+					isVisible = True
+					flowMode = Both
+				}
+			}
+			ACTIONGROUPS
+			{
+				Stage = False, 0
+				Gear = True, 0
+				Light = False, 0
+				RCS = False, 0
+				SAS = False, 0
+				Brakes = False, 0
+				Abort = False, 0
+				Custom01 = False, 0
+				Custom02 = False, 0
+				Custom03 = False, 0
+				Custom04 = False, 0
+				Custom05 = False, 0
+				Custom06 = False, 0
+				Custom07 = False, 0
+				Custom08 = False, 0
+				Custom09 = False, 0
+				Custom10 = False, 0
+			}
+			DISCOVERY
+			{
+				state = -1
+				lastObservedTime = 0
+				lifetime = Infinity
+				refTime = Infinity
+				size = 2
+			}
+			FLIGHTPLAN
+			{
+			}
+			CTRLSTATE
+			{
+				pitch = 0
+				yaw = 0
+				roll = 0
+				trimPitch = 0
+				trimYaw = 0
+				trimRoll = 0
+				mainThrottle = 0.5
+			}
+		}
+	}
+	ROSTER
+	{
+		KERBAL
+		{
+			name = Jebediah Kerman
+			gender = Male
+			type = Crew
+			trait = Pilot
+			brave = 0.5
+			dumb = 0.5
+			badS = True
+			tour = False
+			state = Available
+			ToD = 0
+			idx = -1
+			CAREER_LOG
+			{
+				flight = 0
+			}
+			FLIGHT_LOG
+			{
+				flight = 0
+			}
+		}
+		KERBAL
+		{
+			name = Bill Kerman
+			gender = Male
+			type = Crew
+			trait = Engineer
+			brave = 0.5
+			dumb = 0.8
+			badS = False
+			tour = False
+			state = Available
+			ToD = 0
+			idx = -1
+			CAREER_LOG
+			{
+				flight = 0
+			}
+			FLIGHT_LOG
+			{
+				flight = 0
+			}
+		}
+		KERBAL
+		{
+			name = Bob Kerman
+			gender = Male
+			type = Crew
+			trait = Scientist
+			brave = 0.3
+			dumb = 0.1
+			badS = False
+			tour = False
+			state = Available
+			ToD = 0
+			idx = -1
+			CAREER_LOG
+			{
+				flight = 0
+			}
+			FLIGHT_LOG
+			{
+				flight = 0
+			}
+		}
+		KERBAL
+		{
+			name = Valentina Kerman
+			gender = Female
+			type = Crew
+			trait = Pilot
+			brave = 0.55
+			dumb = 0.4
+			badS = True
+			tour = False
+			state = Available
+			ToD = 0
+			idx = -1
+			CAREER_LOG
+			{
+				flight = 0
+			}
+			FLIGHT_LOG
+			{
+				flight = 0
+			}
+		}
+	}
+	MESSAGESYSTEM
+	{
+		flash = False
+	}
+}
