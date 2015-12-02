@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace jasonsh.KSP.Parsers.Save
+namespace jasonsh.KSP.Parsers
 {
     [TestClass]
     public class ParserTests
@@ -17,7 +17,7 @@ namespace jasonsh.KSP.Parsers.Save
             var value = "VALUE";
             var text = $"{name} = {value}";
 
-            var actual = Parser.Parse<Models.Save.Literal>(text);
+            var actual = Parser.Parse<Models.Literal>(text);
 
             Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.Original);
@@ -31,7 +31,7 @@ namespace jasonsh.KSP.Parsers.Save
             var value = "VALUE";
             var text = $"{name} = {value}";
 
-            var actual = Parser.Parse<Models.Save.Literal>(text + "\r\n");
+            var actual = Parser.Parse<Models.Literal>(text + "\r\n");
 
             Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.Original);
@@ -45,7 +45,7 @@ namespace jasonsh.KSP.Parsers.Save
             var value = "VALUE";
             var text = $"      {name} = {value}";
 
-            var actual = Parser.Parse<Models.Save.Literal>(text);
+            var actual = Parser.Parse<Models.Literal>(text);
 
             Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.Original);
@@ -59,7 +59,7 @@ namespace jasonsh.KSP.Parsers.Save
             var value = "VALUE";
             var text = $"\t\t\t{name} = {value}";
 
-            var actual = Parser.Parse<Models.Save.Literal>(text);
+            var actual = Parser.Parse<Models.Literal>(text);
 
             Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.Original);
