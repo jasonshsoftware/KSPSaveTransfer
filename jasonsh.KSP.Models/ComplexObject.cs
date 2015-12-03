@@ -17,7 +17,7 @@ namespace jasonsh.KSP.Models
         public ComplexObject(string name, IEnumerable<BaseModel> children)
             : base()
         {
-            if (String.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
+            if (String.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
 
             this.Name = name;
             this.Children = children;

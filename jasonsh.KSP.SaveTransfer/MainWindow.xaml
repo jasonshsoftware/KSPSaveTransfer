@@ -7,7 +7,7 @@
         xmlns:c="clr-namespace:jasonsh.KSP.SaveTransfer.Controls"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Transfer Vessel Data" Height="350" Width="525">
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>

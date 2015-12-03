@@ -78,6 +78,7 @@
     <Compile Include="Controls\SaveEditor.cs" />
     <Compile Include="ViewModels\SaveEditorViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\VesselViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +124,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\jasonsh.KSP.Models\jasonsh.KSP.Models.csproj">
+      <Project>{8f22428c-969f-4ebb-a66f-fb327d91f2ef}</Project>
+      <Name>jasonsh.KSP.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\jasonsh.KSP.Parsers\jasonsh.KSP.Parsers.csproj">
+      <Project>{af9d5e8b-db30-45bb-a59a-964bcdd1b498}</Project>
+      <Name>jasonsh.KSP.Parsers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
