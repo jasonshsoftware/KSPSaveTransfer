@@ -63,6 +63,14 @@
       <Name>jasonsh.KSP.Parsers</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Destination Save.sfs">
+      <Link>ParserTests\Destination Save.sfs</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Source Save.sfs">
+      <Link>ParserTests\Source Save.sfs</Link>
+    </EmbeddedResource>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

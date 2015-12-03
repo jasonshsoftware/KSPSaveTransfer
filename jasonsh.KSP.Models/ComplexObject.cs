@@ -34,7 +34,8 @@ namespace jasonsh.KSP.Models
             return $@"{this.Name}
 {{
 {children}
-}}";
+}}
+";
         }
     }
 }

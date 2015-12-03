@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -198,7 +200,8 @@ namespace jasonsh.KSP.Parsers
 {{
 " + "\t" + $@"{literalName1} = {literalValue1}
 " + "\t" + $@"{literalName2} = {literalValue2}
-}}";
+}}
+";
 
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
@@ -249,7 +252,8 @@ namespace jasonsh.KSP.Parsers
 " + "\t" + $@"{complexObjectName2}
 " + "\t" + $@"{{
 " + "\t" + $@"}}
-}}";
+}}
+";
 
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
@@ -320,7 +324,8 @@ namespace jasonsh.KSP.Parsers
 " + "\t" + $@"{{
 " + "\t" + $@"}}
 " + "\t" + $@"{literalName2} = {literalValue2}
-}}";
+}}
+";
 
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
@@ -393,12 +398,46 @@ namespace jasonsh.KSP.Parsers
 " + "\t" + $@"{{
 " + "\t" + "\t" + $@"{literalName2} = {literalValue2}
 " + "\t" + $@"}}
-}}";
+}}
+";
 
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
             Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.ToString());
+        }
+        #endregion
+
+        #region Smoke Tests
+        [TestMethod]
+        public async Task SmokeTest()
+        {
+            var prefix = $"{this.GetType().FullName}.";
+
+            var testFiles = Assembly.GetExecutingAssembly().GetManifestResourceNames()
+                .Where(p => p.StartsWith(prefix))
+                .Select(p => new { FullName = p, Name = p.Substring(prefix.Length) })
+                .ToList();
+
+            Assert.AreNotEqual(0, testFiles.Count, $"There are no smoke test files for {this.GetType().Name}");
+
+            foreach (var testFile in testFiles)
+            {
+                var content = "";
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(testFile.FullName))
+                {
+                    using (var reader = new StreamReader(stream))
+                    {
+                        content = await reader.ReadToEndAsync();
+                    }
+                }
+
+                Assert.IsFalse(String.IsNullOrEmpty(content), $"File empty: {testFile.Name}");
+
+                var actual = Parser.ParseModel(content);
+
+                Assert.AreEqual(content, actual.ToString(), $"Serialized content does not match for {testFile.Name}");
+            }
         }
         #endregion
     }
