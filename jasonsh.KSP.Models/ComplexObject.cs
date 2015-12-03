@@ -17,8 +17,23 @@ namespace jasonsh.KSP.Models
         public ComplexObject(string name, IEnumerable<BaseModel> children)
             : base()
         {
+            if (String.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
+
             this.Name = name;
             this.Children = children;
+        }
+
+        public override string ToString()
+        {
+            var children = this.Children
+                .Select(p => p.ToString())
+                .Select(p => "\t" + p)
+                .Aggregate("", (l, r) => !String.IsNullOrEmpty(l) ? $"{l}\r\n{r}" : r);
+
+            return $@"{this.Name}
+{{
+{children}
+}}";
         }
     }
 }

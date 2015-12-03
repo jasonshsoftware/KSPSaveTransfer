@@ -14,6 +14,8 @@ namespace jasonsh.KSP.Models
         public Literal(string name, string value)
             : base()
         {
+            if (String.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
+
             this.Name = name;
             this.Value = value;
         }

@@ -10,7 +10,7 @@ namespace jasonsh.KSP.Parsers
     public static class Parser
     {
         #region Common
-        internal static Parser<string> Text(this Parser<IEnumerable<string>> strings) { return strings.Select(p => p.Aggregate("", (l, r) => l + r)); }
+        internal static Parser<string> Text(this Parser<IEnumerable<string>> strings) { return strings.Select(p => p.Aggregate("", (l, r) => $"{l}{r}")); }
         internal static readonly Parser<string> EqualsParser = Parse.String(" = ").Text();
         internal static readonly Parser<char> OpenBrace = Parse.Char('{');
         internal static readonly Parser<char> CloseBrace = Parse.Char('}');
@@ -23,7 +23,6 @@ namespace jasonsh.KSP.Parsers
             from name in Parse.AnyChar.Except(EqualsParser).Except(Parse.WhiteSpace).Many().Text()
             from eq in EqualsParser
             from value in Parse.AnyChar.Except(Parse.LineEnd).Many().Text()
-            from _3 in Parse.LineEnd.Many().Text()
             select new Models.Literal(name, value);
         #endregion
 
@@ -36,6 +35,7 @@ namespace jasonsh.KSP.Parsers
             from openBrace in OpenBrace
             from _4 in Parse.LineEnd.AtLeastOnce().Return("\r\n")
             from children in LiteralParser.Many()
+            from _5 in Parse.LineEnd.Many().Text()
             from closeBrace in CloseBrace
             select new Models.ComplexObject(name, children);
         #endregion

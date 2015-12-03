@@ -85,6 +85,7 @@ namespace jasonsh.KSP.Parsers
 
             var actual = Parser.ParseModel<Models.Literal>(text);
 
+            Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.ToString());
         }
         #endregion
@@ -165,8 +166,8 @@ namespace jasonsh.KSP.Parsers
             var literalValue2 = "LITERAL VALUE 2";
             var text = $@"{name}
 {{
-    {literalName1} = {literalValue1}
-    {literalName2} = {literalValue2}
+" + "\t" + $@"{literalName1} = {literalValue1}
+" + "\t" + $@"{literalName2} = {literalValue2}
 }}";
 
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
@@ -184,6 +185,25 @@ namespace jasonsh.KSP.Parsers
             Assert.IsInstanceOfType(actual.Children.ElementAt(1), typeof(Models.Literal));
             Assert.AreEqual(literalName2, actual.Children.OfType<Models.Literal>().ElementAt(1).Name);
             Assert.AreEqual(literalValue2, actual.Children.OfType<Models.Literal>().ElementAt(1).Value);
+        }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithLiterals_ToString_ReturnsOriginal()
+        {
+            var name = "NAME";
+            var literalName1 = "LITERAL_NAME_1";
+            var literalValue1 = "LITERAL VALUE 1";
+            var literalName2 = "LITERAL_NAME_2";
+            var literalValue2 = "LITERAL VALUE 2";
+            var text = $@"{name}
+{{
+" + "\t" + $@"{literalName1} = {literalValue1}
+" + "\t" + $@"{literalName2} = {literalValue2}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(text, actual.ToString());
         }
         #endregion
     }
