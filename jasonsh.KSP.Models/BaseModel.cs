@@ -14,5 +14,10 @@ namespace jasonsh.KSP.Models
         {
             this.Original = original;
         }
+
+        public override string ToString()
+        {
+            return this.Original;
+        }
     }
 }

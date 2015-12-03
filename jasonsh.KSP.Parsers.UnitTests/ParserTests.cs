@@ -81,6 +81,17 @@ namespace jasonsh.KSP.Parsers
             Assert.AreEqual(name, actual.Name);
             Assert.AreEqual(value, actual.Value);
         }
+        [TestMethod]
+        public void ParseModel_Literal_ToString_ReturnsOriginal()
+        {
+            var name = "NAME";
+            var value = "VALUE";
+            var text = $"{name} = {value}";
+
+            var actual = Parser.ParseModel<Models.Literal>(text);
+
+            Assert.AreEqual(text, actual.ToString());
+        }
         #endregion
 
         #region ComplexObject
@@ -153,6 +164,36 @@ namespace jasonsh.KSP.Parsers
             Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
+        }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithLiterals_ReturnsComplexObject()
+        {
+            var name = "NAME";
+            var literalName1 = "LITERAL_NAME_1";
+            var literalValue1 = "LITERAL VALUE 1";
+            var literalName2 = "LITERAL_NAME_2";
+            var literalValue2 = "LITERAL VALUE 2";
+            var text = $@"{name}
+{{
+    {literalName1} = {literalValue1}
+    {literalName2} = {literalValue2}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(name, actual.Name);
+
+            Assert.IsNotNull(actual.Children);
+            Assert.AreEqual(2, actual.Children.Count());
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(0), typeof(Models.Literal));
+            Assert.AreEqual(literalName1, actual.Children.OfType<Models.Literal>().ElementAt(0).Name);
+            Assert.AreEqual(literalValue1, actual.Children.OfType<Models.Literal>().ElementAt(0).Value);
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(1), typeof(Models.Literal));
+            Assert.AreEqual(literalName2, actual.Children.OfType<Models.Literal>().ElementAt(1).Name);
+            Assert.AreEqual(literalValue2, actual.Children.OfType<Models.Literal>().ElementAt(1).Value);
         }
         #endregion
     }
