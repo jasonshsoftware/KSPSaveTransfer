@@ -205,6 +205,201 @@ namespace jasonsh.KSP.Parsers
             Assert.IsNotNull(actual);
             Assert.AreEqual(text, actual.ToString());
         }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithComplexObjects_ReturnsComplexObject()
+        {
+            var name = "NAME";
+            var complexObjectName1 = "COMPLEX_OBJECT_NAME_1";
+            var complexObjectName2 = "COMPLEX_OBJECT_NAME_2";
+            var text = $@"{name}
+{{
+" + "\t" + $@"{complexObjectName1}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+" + "\t" + $@"{complexObjectName2}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(name, actual.Name);
+
+            Assert.IsNotNull(actual.Children);
+            Assert.AreEqual(2, actual.Children.Count());
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(0), typeof(Models.ComplexObject));
+            Assert.AreEqual(complexObjectName1, actual.Children.OfType<Models.ComplexObject>().ElementAt(0).Name);
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(1), typeof(Models.ComplexObject));
+            Assert.AreEqual(complexObjectName2, actual.Children.OfType<Models.ComplexObject>().ElementAt(1).Name);
+        }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithComplexObjects_ToString_ReturnsOriginal()
+        {
+            var name = "NAME";
+            var complexObjectName1 = "COMPLEX_OBJECT_NAME_1";
+            var complexObjectName2 = "COMPLEX_OBJECT_NAME_2";
+            var text = $@"{name}
+{{
+" + "\t" + $@"{complexObjectName1}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+" + "\t" + $@"{complexObjectName2}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(text, actual.ToString());
+        }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithComplexObjectsAndLiterals_ReturnsComplexObject()
+        {
+            var name = "NAME";
+            var complexObjectName1 = "COMPLEX_OBJECT_NAME_1";
+            var complexObjectName2 = "COMPLEX_OBJECT_NAME_2";
+            var literalName1 = "LITERAL_NAME_1";
+            var literalValue1 = "LITERAL VALUE 1";
+            var literalName2 = "LITERAL_NAME_2";
+            var literalValue2 = "LITERAL VALUE 2";
+            var text = $@"{name}
+{{
+" + "\t" + $@"{complexObjectName1}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+" + "\t" + $@"{literalName1} = {literalValue1}
+" + "\t" + $@"{complexObjectName2}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+" + "\t" + $@"{literalName2} = {literalValue2}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(name, actual.Name);
+
+            Assert.IsNotNull(actual.Children);
+            Assert.AreEqual(4, actual.Children.Count());
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(0), typeof(Models.ComplexObject));
+            Assert.AreEqual(complexObjectName1, actual.Children.OfType<Models.ComplexObject>().ElementAt(0).Name);
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(1), typeof(Models.Literal));
+            Assert.AreEqual(literalName1, actual.Children.OfType<Models.Literal>().ElementAt(0).Name);
+            Assert.AreEqual(literalValue1, actual.Children.OfType<Models.Literal>().ElementAt(0).Value);
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(2), typeof(Models.ComplexObject));
+            Assert.AreEqual(complexObjectName2, actual.Children.OfType<Models.ComplexObject>().ElementAt(1).Name);
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(3), typeof(Models.Literal));
+            Assert.AreEqual(literalName2, actual.Children.OfType<Models.Literal>().ElementAt(1).Name);
+            Assert.AreEqual(literalValue2, actual.Children.OfType<Models.Literal>().ElementAt(1).Value);
+        }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithComplexObjectsAndLiterals_ToString_ReturnsOriginal()
+        {
+            var name = "NAME";
+            var complexObjectName1 = "COMPLEX_OBJECT_NAME_1";
+            var complexObjectName2 = "COMPLEX_OBJECT_NAME_2";
+            var literalName1 = "LITERAL_NAME_1";
+            var literalValue1 = "LITERAL VALUE 1";
+            var literalName2 = "LITERAL_NAME_2";
+            var literalValue2 = "LITERAL VALUE 2";
+            var text = $@"{name}
+{{
+" + "\t" + $@"{complexObjectName1}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+" + "\t" + $@"{literalName1} = {literalValue1}
+" + "\t" + $@"{complexObjectName2}
+" + "\t" + $@"{{
+" + "\t" + $@"}}
+" + "\t" + $@"{literalName2} = {literalValue2}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(text, actual.ToString());
+        }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithComplexObjectsAndSubLiterals_ReturnsComplexObject()
+        {
+            var name = "NAME";
+            var complexObjectName1 = "COMPLEX_OBJECT_NAME_1";
+            var complexObjectName2 = "COMPLEX_OBJECT_NAME_2";
+            var literalName1 = "LITERAL_NAME_1";
+            var literalValue1 = "LITERAL VALUE 1";
+            var literalName2 = "LITERAL_NAME_2";
+            var literalValue2 = "LITERAL VALUE 2";
+            var text = $@"{name}
+{{
+" + "\t" + $@"{complexObjectName1}
+" + "\t" + $@"{{
+" + "\t" + "\t" + $@"{literalName1} = {literalValue1}
+" + "\t" + $@"}}
+" + "\t" + $@"{complexObjectName2}
+" + "\t" + $@"{{
+" + "\t" + "\t" + $@"{literalName2} = {literalValue2}
+" + "\t" + $@"}}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(name, actual.Name);
+
+            Assert.IsNotNull(actual.Children);
+            Assert.AreEqual(2, actual.Children.Count());
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(0), typeof(Models.ComplexObject));
+            Assert.AreEqual(complexObjectName1, actual.Children.OfType<Models.ComplexObject>().ElementAt(0).Name);
+
+            Assert.AreEqual(1, actual.Children.OfType<Models.ComplexObject>().ElementAt(0).Children.Count());
+            Assert.IsInstanceOfType(actual.Children.OfType<Models.ComplexObject>().ElementAt(0).Children.ElementAt(0), typeof(Models.Literal));
+            Assert.AreEqual(literalName1, actual.Children.OfType<Models.ComplexObject>().ElementAt(0).Children.OfType<Models.Literal>().ElementAt(0).Name);
+            Assert.AreEqual(literalValue1, actual.Children.OfType<Models.ComplexObject>().ElementAt(0).Children.OfType<Models.Literal>().ElementAt(0).Value);
+
+            Assert.IsInstanceOfType(actual.Children.ElementAt(1), typeof(Models.ComplexObject));
+            Assert.AreEqual(complexObjectName2, actual.Children.OfType<Models.ComplexObject>().ElementAt(1).Name);
+
+            Assert.AreEqual(1, actual.Children.OfType<Models.ComplexObject>().ElementAt(1).Children.Count());
+            Assert.IsInstanceOfType(actual.Children.OfType<Models.ComplexObject>().ElementAt(1).Children.ElementAt(0), typeof(Models.Literal));
+            Assert.AreEqual(literalName2, actual.Children.OfType<Models.ComplexObject>().ElementAt(1).Children.OfType<Models.Literal>().ElementAt(0).Name);
+            Assert.AreEqual(literalValue2, actual.Children.OfType<Models.ComplexObject>().ElementAt(1).Children.OfType<Models.Literal>().ElementAt(0).Value);
+        }
+        [TestMethod]
+        public void ParseModel_ComplexObject_WithComplexObjectsAndSubLiterals_ToString_ReturnsOriginal()
+        {
+            var name = "NAME";
+            var complexObjectName1 = "COMPLEX_OBJECT_NAME_1";
+            var complexObjectName2 = "COMPLEX_OBJECT_NAME_2";
+            var literalName1 = "LITERAL_NAME_1";
+            var literalValue1 = "LITERAL VALUE 1";
+            var literalName2 = "LITERAL_NAME_2";
+            var literalValue2 = "LITERAL VALUE 2";
+            var text = $@"{name}
+{{
+" + "\t" + $@"{complexObjectName1}
+" + "\t" + $@"{{
+" + "\t" + "\t" + $@"{literalName1} = {literalValue1}
+" + "\t" + $@"}}
+" + "\t" + $@"{complexObjectName2}
+" + "\t" + $@"{{
+" + "\t" + "\t" + $@"{literalName2} = {literalValue2}
+" + "\t" + $@"}}
+}}";
+
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(text, actual.ToString());
+        }
         #endregion
     }
 }

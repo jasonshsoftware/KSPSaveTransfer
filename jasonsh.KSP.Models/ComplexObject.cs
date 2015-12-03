@@ -27,6 +27,7 @@ namespace jasonsh.KSP.Models
         {
             var children = this.Children
                 .Select(p => p.ToString())
+                .SelectMany(p => p.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
                 .Select(p => "\t" + p)
                 .Aggregate("", (l, r) => !String.IsNullOrEmpty(l) ? $"{l}\r\n{r}" : r);
 

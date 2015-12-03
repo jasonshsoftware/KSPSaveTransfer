@@ -17,9 +17,9 @@ namespace jasonsh.KSP.Parsers
         #endregion
 
         #region Literal
-        internal static readonly Parser<Models.Literal> LiteralParser =
-            from _1 in Parse.LineEnd.Many().Text()
-            from _2 in Parse.WhiteSpace.Many().Text()
+        internal static readonly Parser<Models.BaseModel> LiteralParser =
+            from _1 in Parse.LineEnd.Many()
+            from _2 in Parse.WhiteSpace.Many()
             from name in Parse.AnyChar.Except(EqualsParser).Except(Parse.WhiteSpace).Many().Text()
             from eq in EqualsParser
             from value in Parse.AnyChar.Except(Parse.LineEnd).Many().Text()
@@ -27,16 +27,19 @@ namespace jasonsh.KSP.Parsers
         #endregion
 
         #region ComplexObject
-        internal static readonly Parser<Models.ComplexObject> ComplexObjectParser =
-            from _1 in Parse.LineEnd.Many().Text()
-            from _2 in Parse.WhiteSpace.Many().Text()
+        internal static readonly Parser<Models.BaseModel> ComplexObjectParser =
+            from _1 in Parse.LineEnd.Many()
+            from _2 in Parse.WhiteSpace.Many()
             from name in Parse.AnyChar.Except(Parse.LineEnd).Many().Text()
-            from _3 in Parse.LineEnd.AtLeastOnce().Return("\r\n")
+            from _3 in Parse.LineEnd.AtLeastOnce()
+            from _4 in Parse.WhiteSpace.Many()
             from openBrace in OpenBrace
-            from _4 in Parse.LineEnd.AtLeastOnce().Return("\r\n")
-            from children in LiteralParser.Many()
-            from _5 in Parse.LineEnd.Many().Text()
+            from _5 in Parse.LineEnd.AtLeastOnce()
+            from children in LiteralParser.Or(ComplexObjectParser).Many()
+            from _6 in Parse.LineEnd.Many()
+            from _7 in Parse.WhiteSpace.Many()
             from closeBrace in CloseBrace
+            from _8 in Parse.AnyChar.Except(Parse.LineEnd).Many()
             select new Models.ComplexObject(name, children);
         #endregion
 
