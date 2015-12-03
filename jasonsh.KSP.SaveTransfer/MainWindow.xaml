@@ -9,7 +9,16 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="Transfer Vessel Data" Height="350" Width="525">
     <Grid>
-        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5" Grid.Row="0">
+            <Button Content="Transfer »" Command="{Binding TransferVessel}" />
+        </StackPanel>
+        
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

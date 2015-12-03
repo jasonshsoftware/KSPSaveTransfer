@@ -88,7 +88,7 @@ namespace jasonsh.KSP.SaveTransfer.ViewModels
             catch
             {
                 this.Clear();
-                MessageBox.Show($"Error reading file: {this.Filename}");
+                MessageBox.Show($"Error reading file: {this.Filename}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -106,6 +106,7 @@ namespace jasonsh.KSP.SaveTransfer.ViewModels
         {
             this.FullPath = null;
             this.Game = null;
+            this.SelectedVessel = null;
         }
     }
 }
