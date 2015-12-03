@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace jasonsh.KSP.Models
 {
-    public sealed class Literal : BaseModel
+    public class ComplexObject : BaseModel
     {
         public string Name { get; private set; }
-        public string Value { get; private set; }
 
-        public Literal(string original, string name, string value)
+        public ComplexObject(string original, string name)
             : base(original)
         {
             this.Name = name;
-            this.Value = value;
         }
     }
 }

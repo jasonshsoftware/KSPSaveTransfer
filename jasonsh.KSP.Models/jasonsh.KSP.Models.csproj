@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="ComplexObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Literal.cs" />
   </ItemGroup>
