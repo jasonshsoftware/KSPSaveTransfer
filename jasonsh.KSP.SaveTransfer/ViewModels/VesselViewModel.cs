@@ -9,12 +9,12 @@ namespace jasonsh.KSP.SaveTransfer.ViewModels
 {
     public class VesselViewModel : ViewModelBase
     {
-        public Models.ComplexObject Vessel { get; private set; }
+        public Models.ComplexObject Model { get; private set; }
         public string Name
         {
             get
             {
-                return this.Vessel.Children
+                return this.Model.Children
                     .OfType<Models.Literal>()
                     .Where(p => p.Name.ToLower() == "name")
                     .Select(p => p.Value)
@@ -22,11 +22,11 @@ namespace jasonsh.KSP.SaveTransfer.ViewModels
             }
         }
 
-        public VesselViewModel(Models.ComplexObject vessel)
+        public VesselViewModel(Models.ComplexObject model)
         {
-            if (vessel == null) throw new ArgumentNullException(nameof(vessel));
+            if (model == null) throw new ArgumentNullException(nameof(model));
 
-            this.Vessel = vessel;
+            this.Model = model;
         }
     }
 }

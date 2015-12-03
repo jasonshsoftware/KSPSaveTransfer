@@ -50,6 +50,13 @@ namespace jasonsh.KSP.SaveTransfer.ViewModels
             }
         }
 
+        private VesselViewModel _selectedVessel = null;
+        public VesselViewModel SelectedVessel
+        {
+            get { return _selectedVessel; }
+            set { _selectedVessel = value; this.RaisePropertyChanged(); }
+        }
+
         public SaveEditorViewModel()
         {
             if (IsInDesignMode)

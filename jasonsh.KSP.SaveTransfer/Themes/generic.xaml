@@ -29,7 +29,7 @@
                             <Button Content="..." Command="{Binding OpenFile}" Grid.Column="1" VerticalAlignment="Center" />
                         </Grid>
 
-                        <ListBox ItemsSource="{Binding Vessels}" Grid.Row="1" Margin="0,5,0,0" ItemTemplate="{StaticResource VesselTemplate}" />
+                        <ListBox ItemsSource="{Binding Vessels}" SelectedItem="{Binding SelectedVessel}" Grid.Row="1" Margin="0,5,0,0" ItemTemplate="{StaticResource VesselTemplate}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
