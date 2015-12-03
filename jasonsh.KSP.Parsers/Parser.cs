@@ -19,25 +19,25 @@ namespace jasonsh.KSP.Parsers
         #region Literal
         internal static readonly Parser<Models.Literal> LiteralParser =
             from _1 in Parse.LineEnd.Many().Text()
-            from leadingWhitespace in Parse.WhiteSpace.Many().Text()
+            from _2 in Parse.WhiteSpace.Many().Text()
             from name in Parse.AnyChar.Except(EqualsParser).Except(Parse.WhiteSpace).Many().Text()
             from eq in EqualsParser
             from value in Parse.AnyChar.Except(Parse.LineEnd).Many().Text()
-            from _2 in Parse.LineEnd.Many().Text()
-            select new Models.Literal($"{leadingWhitespace}{name}{eq}{value}", name, value);
+            from _3 in Parse.LineEnd.Many().Text()
+            select new Models.Literal(name, value);
         #endregion
 
         #region ComplexObject
         internal static readonly Parser<Models.ComplexObject> ComplexObjectParser =
             from _1 in Parse.LineEnd.Many().Text()
-            from nameLeadingWhitespace in Parse.WhiteSpace.Many().Text()
+            from _2 in Parse.WhiteSpace.Many().Text()
             from name in Parse.AnyChar.Except(Parse.LineEnd).Many().Text()
-            from nameNewLine in Parse.LineEnd.AtLeastOnce().Return("\r\n")
+            from _3 in Parse.LineEnd.AtLeastOnce().Return("\r\n")
             from openBrace in OpenBrace
-            from openBraceNewLine in Parse.LineEnd.AtLeastOnce().Return("\r\n")
+            from _4 in Parse.LineEnd.AtLeastOnce().Return("\r\n")
             from children in LiteralParser.Many()
             from closeBrace in CloseBrace
-            select new Models.ComplexObject($"{nameLeadingWhitespace}{name}{nameNewLine}{openBrace}{openBraceNewLine}{closeBrace}", name, children);
+            select new Models.ComplexObject(name, children);
         #endregion
 
         public static T ParseModel<T>(string text)

@@ -13,9 +13,9 @@ namespace jasonsh.KSP.Models
         private IEnumerable<BaseModel> _children = null;
         public IEnumerable<BaseModel> Children { get { return _children ?? Enumerable.Empty<BaseModel>(); } private set { _children = value; } }
 
-        public ComplexObject(string original, string name, params BaseModel[] children) : this(original, name, children.AsEnumerable()) { }
-        public ComplexObject(string original, string name, IEnumerable<BaseModel> children)
-            : base(original)
+        public ComplexObject(string name, params BaseModel[] children) : this(name, children.AsEnumerable()) { }
+        public ComplexObject(string name, IEnumerable<BaseModel> children)
+            : base()
         {
             this.Name = name;
             this.Children = children;

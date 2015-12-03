@@ -11,11 +11,16 @@ namespace jasonsh.KSP.Models
         public string Name { get; private set; }
         public string Value { get; private set; }
 
-        public Literal(string original, string name, string value)
-            : base(original)
+        public Literal(string name, string value)
+            : base()
         {
             this.Name = name;
             this.Value = value;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Name} = {this.Value}";
         }
     }
 }

@@ -21,7 +21,6 @@ namespace jasonsh.KSP.Parsers
             var actual = Parser.ParseModel<Models.Literal>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
             Assert.AreEqual(value, actual.Value);
         }
@@ -30,12 +29,11 @@ namespace jasonsh.KSP.Parsers
         {
             var name = "NAME";
             var value = "VALUE";
-            var text = $"{name} = {value}";
+            var text = "\r\n\r\n" + $"{name} = {value}";
 
-            var actual = Parser.ParseModel<Models.Literal>("\r\n\r\n" + text);
+            var actual = Parser.ParseModel<Models.Literal>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
             Assert.AreEqual(value, actual.Value);
         }
@@ -44,12 +42,11 @@ namespace jasonsh.KSP.Parsers
         {
             var name = "NAME";
             var value = "VALUE";
-            var text = $"{name} = {value}";
+            var text = $"{name} = {value}" + "\r\n\r\n";
 
             var actual = Parser.ParseModel<Models.Literal>(text + "\r\n\r\n");
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
             Assert.AreEqual(value, actual.Value);
         }
@@ -58,12 +55,11 @@ namespace jasonsh.KSP.Parsers
         {
             var name = "NAME";
             var value = "VALUE";
-            var text = $"      {name} = {value}";
+            var text = "      " + $"{name} = {value}";
 
             var actual = Parser.ParseModel<Models.Literal>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
             Assert.AreEqual(value, actual.Value);
         }
@@ -77,7 +73,6 @@ namespace jasonsh.KSP.Parsers
             var actual = Parser.ParseModel<Models.Literal>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
             Assert.AreEqual(value, actual.Value);
         }
@@ -106,21 +101,19 @@ namespace jasonsh.KSP.Parsers
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
         }
         [TestMethod]
         public void ParseModel_ComplexObject_LeadingNewLine_ReturnsComplexObject()
         {
             var name = "NAME";
-            var text = $@"{name}
+            var text = "\r\n\r\n" + $@"{name}
 {{
 }}";
 
-            var actual = Parser.ParseModel<Models.ComplexObject>("\r\n\r\n" + text);
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
         }
         [TestMethod]
@@ -129,26 +122,24 @@ namespace jasonsh.KSP.Parsers
             var name = "NAME";
             var text = $@"{name}
 {{
-}}";
+}}" + "\r\n\r\n";
 
-            var actual = Parser.ParseModel<Models.ComplexObject>(text + "\r\n\r\n");
+            var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
         }
         [TestMethod]
         public void ParseModel_ComplexObject_LeadingSpaces_ReturnsComplexObject()
         {
             var name = "NAME";
-            var text = $@"             {name}
+            var text = "      " + $@"{name}
 {{
 }}";
 
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
         }
         [TestMethod]
@@ -162,7 +153,6 @@ namespace jasonsh.KSP.Parsers
             var actual = Parser.ParseModel<Models.ComplexObject>(text);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(text, actual.Original);
             Assert.AreEqual(name, actual.Name);
         }
         [TestMethod]
